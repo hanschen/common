@@ -30,7 +30,7 @@ common_host() {
 
 # Current directory
 common_current_dir() {
-  echo -n "%{$fg[blue]%}%c "
+  echo -n "%{$fg[blue]%}%3~ "
 }
 
 # Prompt symbol

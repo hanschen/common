@@ -37,15 +37,15 @@ common_return_status() {
 # Git status
 common_git_status() {
     local message=""
-    local message_color="%F{green}"
+    local message_color="%{$fg_bold[green]%}"
 
     local staged=$(git status --porcelain 2>/dev/null | grep -e "^M " -e "^A ")
     local unstaged=$(git status --porcelain 2>/dev/null | grep -e "^ M" -e "^??")
 
     if [[ -n ${staged} ]]; then
-        message_color="%F{red}"
+        message_color="%{$fg_bold[red]%}"
     elif [[ -n ${unstaged} ]]; then
-        message_color="%F{yellow}"
+        message_color="%{$fg_bold[yellow]%}"
     fi
 
     local branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)

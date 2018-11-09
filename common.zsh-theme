@@ -9,10 +9,6 @@ PROMPT='$(common_host)$(common_current_dir)$(common_bg_jobs)$(common_return_stat
 # Right Prompt
 RPROMPT='$(common_git_status)'
 
-# Prompt with current SHA
-# PROMPT='$(common_host)$(common_current_dir)$(common_bg_jobs)$(common_return_status)'
-# RPROMPT='$(common_git_status) $(git_prompt_short_sha)'
-
 # Host
 common_host() {
   if [[ -n $SSH_CONNECTION ]]; then
@@ -59,10 +55,6 @@ common_git_status() {
 
     echo -n "${message}"
 }
-
-# Git prompt SHA
-ZSH_THEME_GIT_PROMPT_SHA_BEFORE="%{%F{green}%}"
-ZSH_THEME_GIT_PROMPT_SHA_AFTER="%{$reset_color%} "
 
 # Background Jobs
 common_bg_jobs() {

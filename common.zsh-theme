@@ -1,7 +1,7 @@
 # vim: filetype=sh
 
 # Prompt symbol
-COMMON_PROMPT_SYMBOL="❯"
+COMMON_PROMPT_SYMBOL="$"
 
 # Vi indicator
 MODE_INDICATOR="%{$fg_bold[magenta]%}-- NORMAL -- %{$reset_color%}"

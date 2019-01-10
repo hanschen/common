@@ -1,23 +1,6 @@
-# vim: filetype=sh
-
-# Prompt symbol
-COMMON_PROMPT_SYMBOL="$"
-
-# Vi indicator
-MODE_INDICATOR="%{$fg_bold[magenta]%}-- NORMAL -- %{$reset_color%}"
-
-# Left Prompt
-PROMPT='$(common_host)$(common_current_dir)$(common_bg_jobs)$(common_return_status)'
-
-# Right Prompt
-RPROMPT=""
-function zle-line-init zle-keymap-select {
-RPS1="${${KEYMAP/vicmd/${MODE_INDICATOR}}/(main|viins)/} $(common_git_status)"
-    RPS2=$RPS1
-    zle reset-prompt
-}
-zle -N zle-line-init
-zle -N zle-keymap-select
+#------------------------------------------------------------------------------
+# Functions
+#------------------------------------------------------------------------------
 
 # Host
 common_host() {
@@ -71,3 +54,28 @@ common_bg_jobs() {
   bg_status="%{$fg[yellow]%}%(1j.↓%j .)"
   echo -n $bg_status
 }
+
+#------------------------------------------------------------------------------
+# Options
+#------------------------------------------------------------------------------
+
+# Prompt symbol
+COMMON_PROMPT_SYMBOL="$"
+
+# Vi indicator
+MODE_INDICATOR="%{$fg_bold[magenta]%}-- NORMAL -- %{$reset_color%}"
+
+# Left Prompt
+PROMPT='$(common_host)$(common_current_dir)$(common_bg_jobs)$(common_return_status)'
+
+# Right Prompt
+RPROMPT=""
+function zle-line-init zle-keymap-select {
+RPS1="${${KEYMAP/vicmd/${MODE_INDICATOR}}/(main|viins)/} $(common_git_status)"
+    RPS2=$RPS1
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+# vim: filetype=sh

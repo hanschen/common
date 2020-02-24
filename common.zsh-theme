@@ -30,7 +30,7 @@ common_return_status() {
 # Git status
 common_git_status() {
     local message=""
-    local message_color="%{$fg[green]%}"
+    local message_color="%{$fg_bold[blue]%}"
 
     local staged=$(git status --porcelain 2>/dev/null | grep -e "^M " -e "^A ")
     local unstaged=$(git status --porcelain 2>/dev/null | grep -e "^ M" -e "^??")
